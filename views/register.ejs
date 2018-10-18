@@ -8,6 +8,71 @@
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-   <h2>注册页面</h2> 
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">菜鸟教程</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li><a href="#">SVN</a></li>
+                <li><a href="#">SVN</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <h1>XX - 后台管理系统</h1>
+
+                <form action="/users/register" method="POST" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-3">用户名：</label>
+                    <div class="col-sm-9">
+                    <input type="text" name="username" class="form-control" placeholder="请输入用户名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">密码：</label>
+                    <div class="col-sm-9">
+                    <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">确认密码：</label>
+                    <div class="col-sm-9">
+                    <input type="password" name="repassword" class="form-control" placeholder="请再次输入密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">昵称：</label>
+                    <div class="col-sm-9">
+                    <input type="text" name="nickname" class="form-control" placeholder="请输入昵称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">手机号码：</label>
+                    <div class="col-sm-9">
+                    <input type="text" name="phone" class="form-control" placeholder="请输入手机号码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">是否是管理员：</label>
+                    <div class="col-sm-9">
+                    <input type="radio" name="isAdmin" value="1">yes
+                    <input type="radio" name="isAdmin" value="0" checked>no
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>

@@ -8,4 +8,4 @@
 - sex  default 0
 - age  default ''
 - iphone default ''
-- is_admin default 0 - 不是管理员  1 - 是管理员
+- is_admin default 0 - 不是管理员  
