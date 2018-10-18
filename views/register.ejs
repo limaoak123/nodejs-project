@@ -6,29 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel='stylesheet' href='/css/style.css' />
 </head>
 <body>
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">菜鸟教程</a>
+            <a class="navbar-brand" href="#">德玛西亚</a>
         </div>
         <div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">iOS</a></li>
-                <li><a href="#">SVN</a></li>
-                <li><a href="#">SVN</a></li>
-                <li><a href="#">SVN</a></li>
+                <li class="active"><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">用户管理</a></li>
+                <li><a href="#">手机列表</a></li>             
             </ul>
         </div>
         </div>
     </nav>
-
+   
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <h1>XX - 后台管理系统</h1>
-
+                <h1 class="hd_tit">XX - 后台管理系统</h1>
                 <form action="/users/register" method="POST" class="form-horizontal">
                 <div class="form-group">
                     <label class="control-label col-sm-3">用户名：</label>
@@ -61,10 +62,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3">是否是管理员：</label>
-                    <div class="col-sm-9">
-                    <input type="radio" name="isAdmin" value="1">yes
-                    <input type="radio" name="isAdmin" value="0" checked>no
+                    <label class="control-label col-sm-3">身份：</label>
+                    <div class="col-sm-9 btns">
+                    <input type="radio" name="isAdmin" value="1">管理员
+                    <input type="radio" name="isAdmin" value="0" checked>普通会员
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
