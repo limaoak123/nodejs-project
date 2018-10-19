@@ -48,9 +48,31 @@ router.post('/login', function(req, res) {
     } else {
       // 跳到到首页
       console.log('当前登录用户的信息是', data);
+
+      res.cookie('username',data.username,{
+        maxAge: 1000 * 60 * 60 * 24,
+      })
+
+      res.cookie('nickname',data.nickname,{
+        maxAge: 1000 * 60 * 60 * 24,
+      })
+
+      res.cookie('isAdmin',data.isAdmin,{
+        maxAge: 1000 * 60 * 60 * 24,
+      })
+
       res.redirect('/');
     }
   })
 })
 
+//退出登录
+router.get('/logout',function(req,res){
+  //清除cookie,跳转到登录
+
+  res.clearCookie('username');
+  res.clearCookie('nickname');
+  res.clearCookie('isAdmin');
+  res.redirect('/login.html');
+})
 module.exports = router;

@@ -3,6 +3,18 @@ var router = express.Router();
 
 // 首页
 router.get('/', function(req, res, next) {
+  //判断cookie用户信息
+  if(req.cookies.username){
+    res.render('index',{
+      username: req.cookies.username,
+      nickname: req.cookies.nickname,
+      isAdmin: parseInt(req.cookies.isAdmin) ? '(管理员)' : ''
+    });
+  }else{
+    //跳转到登录页面
+    res.redirect('/login.html');
+  }
+
   res.render('index', { title: 'Express' });
 });
 
