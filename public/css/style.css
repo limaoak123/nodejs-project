@@ -1,9 +1,10 @@
 body{
   background: url(/images/bg.png) no-repeat center;
   background-size: 100%;
+  background-color: #060333; 
 }
 .container{
-  margin-top: 50px;
+  margin-top: 100px;
 }
 .row .control-label{
   padding: 0;
@@ -16,8 +17,8 @@ body{
   padding-left: 5px;
 }
 .hd_tit{
-  margin-left: 40px;
-  margin-bottom: 20px;
+  margin-left: 50px;
+  margin-bottom: 60px;
   
 }
 .btns{
