@@ -28,9 +28,7 @@ const usersModel = {
       const db = client.db('limao');
 
       // 1. 对 data 里面的 isAdmin 修改为 is_admin
-      // 2. 写一个 _id 为 1
-      // 思考，下一个注册，先得到之前的用户表的记录条数，+1 操作之后写给下一个注册的人。
-      // 思考, 不允许用户名相同。
+      // 2.  _id 从 1 自增
 
       let saveData = {
         username: data.username,
@@ -40,7 +38,7 @@ const usersModel = {
         is_admin: data.isAdmin
       };
 
-      // ========= 使用 async 的 串行无关联来写 ======================
+      //  async串行无关联
 
       async.series([
         function (callback) {
@@ -71,7 +69,7 @@ const usersModel = {
         },
 
         function (callback) {
-          // 写入数据库的操作
+          // 写入数据库
           db.collection('users').insertOne(saveData, function(err) {
             if (err) {
               callback({ code: -101, msg: '写入数据库失败'});
@@ -92,12 +90,6 @@ const usersModel = {
 
         client.close();
       });
-
-
-
-
-      // ============= 万能的分割线  以下是回调地狱的写法 =================
-
     })
   },
 
@@ -127,13 +119,67 @@ const usersModel = {
             cb({code: -102, msg: '用户名或密码错误'});
           } else {
             console.log('用户可以登录');
-            // 这里需要将 用户名，昵称、与是否是管理员这两个字段告诉给前端
+            // 将 用户名，昵称、是否是管理员给前端
             cb(null, {
               username: data[0].username,
               nickname: data[0].nickname,
               isAdmin: data[0].is_admin
             });
           }
+          client.close();
+        })
+      }
+    })
+  },
+ /**
+   * 获取用户列表
+   * @param {Object} data 页码信息与每页显示条数信息
+   * @param {Function} cb 回调函数
+   */
+  getUserInfo(data, cb) {
+    MongoClient.connect(url, function(err, client) {
+      if (err) {
+        cb({code: -100, msg: '链接数据库失败'});
+      } else {
+        var db = client.db('limao');
+
+        var limitNum = parseInt(data.pageSize);
+        var skipNum = data.page * data.pageSize - data.pageSize;
+
+        async.parallel([
+          function (callback) {
+            // 查询所有记录
+            db.collection('users').find().count(function(err, num) {
+              if (err) {
+                callback({code: -101, msg: '查询数据库失败'});
+              } else {
+                callback(null, num);
+              }
+            })
+          },
+
+          function (callback) {
+            // 查询分页的数据
+            db.collection('users').find().limit(limitNum).skip(skipNum).toArray(function(err, data) {
+              if (err) {
+                callback({code: -101, msg: '查询数据库失败'});
+              } else {
+                callback(null, data);
+              }
+            })
+          }
+        ], function(err, results) {
+          if (err) {
+            cb(err);
+          } else {
+            cb(null, {
+              totalPage: Math.ceil(results[0] / data.pageSize),
+              userInfo: results[1],
+              page: data.page,
+            })
+          }
+
+          // 关闭连接
           client.close();
         })
       }
