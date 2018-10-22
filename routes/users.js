@@ -91,14 +91,17 @@ router.get('/delete',function(req,res){
 });
 
 //用户修改
-router.get('/update',function(req,res){
-  var id = JSON.parse(req.query.id);
-  usersModel.updateUser(id,function(err){
+router.post('/update',function(req,res){  
+  usersModel.updateUser(req.body, function(err){
+    console.log("===");
+    console.log(req.body);
+    console.log("===");
     if(err){
       res.render('werror',err);
-    }  
+    }else{
+      res.redirect('/user-manager.html');
+    }
   });
-  res.redirect('/user-manager.html');
-})
+});
 
 module.exports = router;

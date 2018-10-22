@@ -43,4 +43,41 @@
     height: 50px;
     line-height: 50px;
   }
-  
+
+  #updateBox{
+    position: fixed;
+    top:200px;
+    left: 280px;
+    padding: 20px 50px;
+    background:#ddd;
+    border: 1px solid #000;
+    display: none;
+  }
+  #updateBox h2{
+    text-align: center;
+  }
+  label.change{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+  }
+  label.change span{
+    display: inline-block;
+    width: 60px;
+  }
+  label.change input{
+    border: none
+  }
+ #updateBox #sub{
+    display: inline-block;
+    padding: 10px 20px;
+    background: green;
+    margin-right: 80px;;
+    border: none;
+    cursor: pointer;
+  }
+ i.cancle{
+    padding: 10px 20px;
+    background: green;
+    cursor: pointer;
+  }

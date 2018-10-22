@@ -13,8 +13,10 @@
            <%- include('./common/menu.ejs',{isAdmin:isAdmin}) %> 
         </div>
         <div class="main">
-            <input type="text" placeholder="输入用户昵称">
-            <button>搜索</button>
+           <form action="/users/search" method="post">
+              <input type="text" placeholder="输入用户昵称">
+              <button>搜索</button>
+           </form>
             <table>
                 <thead>
                     <tr>
@@ -31,9 +33,9 @@
                     <% for (var i = 0; i < userInfo.length; i++) { %>
                       <tr>
                         <td><%= userInfo[i]._id %></td>
-                        <td><%= userInfo[i].username %></td>
-                        <td><%= userInfo[i].nickname %></td>
-                        <td><%= userInfo[i].phone %></td>
+                        <td class="userName"><%= userInfo[i].username %></td>
+                        <td class="nickName"><%= userInfo[i].nickname %></td>
+                        <td class="phone"><%= userInfo[i].phone %></td>
                         <td><%= parseInt(userInfo[i].is_admin) ? '是' : '否' %></td>
                         <td>
                           <!--
@@ -42,7 +44,7 @@
                            -->
         
                           <% if (userInfo[i].username === username) { %>
-                            <a href="#" class="upadate">修改</a>
+                            <a href="#" class="update">修改</a>
                           <% } else if (parseInt(userInfo[i].is_admin)) { %>
         
                           <% } else { %>
@@ -57,10 +59,23 @@
                   </tbody>
             </table>
 
-            <div id="update">
+            <div id="updateBox">
               <h2>修改</h2>
-              <form action="/users/upadte" method="post">
-
+              <form action="/users/update" method="post">
+                <label class="change">
+                  <span>用户名</span>
+                  <input type="text" name="username" class="updateUser" value="" readonly>
+                </label>
+                <label class="change">
+                  <span>昵称</span>
+                  <input type="text" name="nickname" class="updateNick" value="">
+                </label>
+                <label class="change">
+                  <span>电话号码</span>
+                  <input type="text" name="phone" class="updatePhone" value="">
+                </label>
+                  <input type="submit" value="确认" id="sub">
+                  <i class="cancle">取消</i>
               </form>
             </div>
 
@@ -76,3 +91,5 @@
     </div>
   </body>
 </html>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/user-manager.js"></script>

@@ -204,10 +204,45 @@ const usersModel = {
       }
       client.close();
     });
-  }
+  },
 
   //修改用户信息
-  
+  /**
+   * 
+   * @param {object} data 修改的用户信息 
+   * @param {Function} cb 回调函数 
+   */
+   updateUser(data,cb){
+    MongoClient.connect(url, function(err, client) {
+      let saveData = {
+        username: data.username,
+        password: data.password,
+        nickname: data.nickname,
+        phone: data.phone,
+        is_admin: data.isAdmin
+      };
+      if (err) {
+        console.log("连接数据库失败")
+        cb({code: -100, msg: '数据库连接失败'});
+        return;
+      } else {
+        const db = client.db('limao');
+        db.collection("users").updateOne({
+          username : saveData.username
+        },{
+          $set : {
+            nickname: saveData.nickname,
+            phone: saveData.phone
+          }
+        },function(err){
+          if(err) throw err;
+          console.log("修改成功")
+          cb(null);
+        });
+        client.close();
+      }
+   });
+  },
 
 }
 
