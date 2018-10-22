@@ -17,31 +17,36 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3">用户名：</label>
                     <div class="col-sm-9">
-                    <input type="text" name="username" class="form-control" placeholder="请输入用户名">
+                    <input type="text" name="username" id="username" class="form-control" placeholder="请输入用户名">
+                    <span>*(5~10个字符 由字母、数字和下划线组成)</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">密码：</label>
                     <div class="col-sm-9">
-                    <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="请输入密码">
+                    <span>*(6-20个字符 由字母、数字和下划线组成)</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">确认密码：</label>
                     <div class="col-sm-9">
-                    <input type="password" name="repassword" class="form-control" placeholder="请再次输入密码">
+                    <input type="password" name="repassword" id="repassword" class="form-control" placeholder="请再次输入密码">
+                    <span>*(两次密码输入不一致)</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">昵称：</label>
                     <div class="col-sm-9">
-                    <input type="text" name="nickname" class="form-control" placeholder="请输入昵称">
+                    <input type="text" name="nickname" id="nickname" class="form-control" placeholder="请输入昵称">
+                    <span>*(2~10个字符 不能含特殊符号)</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">手机号码：</label>
                     <div class="col-sm-9">
-                    <input type="text" name="phone" class="form-control" placeholder="请输入手机号码">
+                    <input type="text" name="phone" id="phone" class="form-control" placeholder="请输入手机号码">
+                    <span>*(请正确输入手机号)</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -51,12 +56,14 @@
                     <input type="radio" name="isAdmin" value="0" checked>普通会员
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="sub" class="btn btn-primary">Submit</button>
                 </form>
+                <a href="./login.html" class="to-log">已有账号，直接登录</a>
             </div>
         </div>
     </div>
 </body>
 </html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/reg.js"></script>

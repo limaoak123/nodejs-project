@@ -1,0 +1,46 @@
+.index {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .index .header {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #000;
+  }
+  
+  .index .container {
+    display: flex;
+    flex: 1;
+  }
+  
+  .container .menu {
+    width: 260px;
+    height: 100%;
+  }
+  
+  .container .main {
+    flex: 1;
+    height: 100%;
+  }
+  
+  /* // ======== [头部样式] ======== */
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .header .header_right {
+    display: flex;
+  }
+  
+  /* // ======== [左侧菜单] ======== */
+  .menu {
+    border-right: 1px solid #000;
+  }
+  
+  .menu .menu_item {
+    height: 50px;
+    line-height: 50px;
+  }
+  

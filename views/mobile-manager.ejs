@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel='stylesheet' href='/css/index.css' />
+  </head>
+  <body>
+    <div class="index">
+      <%- include('./common/header.ejs',{nickname:nickname,isAdmin: isAdmin}) %> 
+      <div class="container">
+        <div class="menu">
+           <%- include('./common/menu.ejs',{isAdmin:isAdmin}) %> 
+        </div>
+        <div class="main">
+            
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

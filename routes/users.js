@@ -7,18 +7,20 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-// 注册页面
-// router.get('/register', function(req, res) {
-//   res.render('register');
-// });
-
 // 注册处理
 router.post('/register', function (req, res) {
-  // console.log('获取传递过来的 post 请求的数据');
-  // console.log(req.body);
   // 1. 用户名必须是 5 - 10为字符
   if (!/^\w{5,10}$/.test(req.body.username)) {
     res.render('werror', { code: -1, msg: '用户名必须是5-10位' });
+    return;
+}else if( !/^\S{6,20}$/.test(req.body.password)){
+    res.render('werror', { code: -1, msg: '密码必须是6-20位' });
+    return;
+  }else if(!/^[0-9a-zA-Z\u4e00-\u9fa5_]{2,10}$/.test(req.body.nickname)){
+    res.render('werror', { code: -1, msg: '昵称必须是2-10位' });
+    return;
+  }else if(!/^1[3-8]\d{9}$/.test(req.body.phone)){
+    res.render('werror', { code: -1, msg: '正确填写11位手机号' });
     return;
   }
 
@@ -75,4 +77,28 @@ router.get('/logout',function(req,res){
   res.clearCookie('isAdmin');
   res.redirect('/login.html');
 })
+
+//用户删除
+router.get('/delete',function(req,res){
+  var id = JSON.parse(req.query.id);
+  usersModel.delUser(id,function(err){
+    
+    if(err){
+      res.render('werror',err);
+    }
+  }); 
+  res.redirect('/user-manager.html');
+});
+
+//用户修改
+router.get('/update',function(req,res){
+  var id = JSON.parse(req.query.id);
+  usersModel.updateUser(id,function(err){
+    if(err){
+      res.render('werror',err);
+    }  
+  });
+  res.redirect('/user-manager.html');
+})
+
 module.exports = router;

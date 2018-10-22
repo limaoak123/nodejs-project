@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel='stylesheet' href='/css/index.css' />
+  </head>
+  <body>
+    <div class="index">
+      <%- include('./common/header.ejs',{nickname:nickname,isAdmin: isAdmin}) %> 
+      <div class="container">
+        <div class="menu">
+           <%- include('./common/menu.ejs',{isAdmin:isAdmin}) %> 
+        </div>
+        <div class="main">
+            <input type="text" placeholder="输入用户昵称">
+            <button>搜索</button>
+            <table>
+                <thead>
+                    <tr>
+                        <td>序号</td>
+                        <td>用户名</td>
+                        <td>用户昵称</td>
+                        <td>手机号</td>
+                        <td>是否管理员</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 循环 userList 显示用户数据 -->
+                    <% for (var i = 0; i < userInfo.length; i++) { %>
+                      <tr>
+                        <td><%= userInfo[i]._id %></td>
+                        <td><%= userInfo[i].username %></td>
+                        <td><%= userInfo[i].nickname %></td>
+                        <td><%= userInfo[i].phone %></td>
+                        <td><%= parseInt(userInfo[i].is_admin) ? '是' : '否' %></td>
+                        <td>
+                          <!--
+                            1. 如果当前登录的管理员跟这条记录匹配。那么可以修改，
+                            2. 如果这条记录是管理员记录的话，那么不可以删除
+                           -->
+        
+                          <% if (userInfo[i].username === username) { %>
+                            <a href="#" class="upadate">修改</a>
+                          <% } else if (parseInt(userInfo[i].is_admin)) { %>
+        
+                          <% } else { %>
+                            <a href="#" class="update">修改</a>
+                            <a href="/users/delete?id=<%= userInfo[i]._id %>">删除</a>
+                          <% } %>
+        
+                        </td>
+                      </tr>
+                    <% } %>
+        
+                  </tbody>
+            </table>
+
+            <div id="update">
+              <h2>修改</h2>
+              <form action="/users/upadte" method="post">
+
+              </form>
+            </div>
+
+            <ul>
+                <% for (var i = 0; i < totalPage; i++) { %>
+                  <li>
+                    <a href="/user-manager.html?page=<%= i+1 %>" ><%= i+1 %>页</a>
+                  </li>
+                <% } %>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

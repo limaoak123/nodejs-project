@@ -4,7 +4,7 @@ body{
   background-color: #060333; 
 }
 .container{
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .row .control-label{
   padding: 0;
@@ -18,7 +18,7 @@ body{
 }
 .hd_tit{
   margin-left: 50px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   
 }
 .btns{
@@ -27,4 +27,19 @@ body{
 .btn{
   margin-left: 170px;
 }
-
+.to-reg,.to-log{
+  color: #fff;
+  float: right;
+  display: inline-block;
+  padding: 10px 0;
+}
+a:hover{
+  text-decoration: none;
+}
+.form-group{
+  margin-bottom: 5px;
+}
+.form-group span{
+  color: #f30601;
+  visibility: hidden;
+}

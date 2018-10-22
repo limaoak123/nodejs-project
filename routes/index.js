@@ -64,8 +64,14 @@ module.exports = router;
 //手机管理页面
 router.get('/mobile-manager.html',function(req,res){
   //判断用户是否登录及是否为管理员
-  if(req.cookies.username && parseInt(req.cookies.isAdmin)){
-    res.render('mobile-manager');
+  if(req.cookies.username){
+    res.render('mobile-manager',{
+      username: req.cookies.username,
+      nickname: req.cookies.nickname,
+      isAdmin: parseInt(req.cookies.isAdmin) ? '(管理员)' : ''
+
+      
+    });
   }else{
     res.redirect('/login.html');
   }
