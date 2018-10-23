@@ -1,9 +1,0 @@
-$(".update").click(function(){
-    $("#updateBox").fadeIn();
-    $(".updateUser").val($(this).parents("tr").children(".userName").text().trim());
-    $(".updateNick").val($(this).parents("tr").children(".nickName").text().trim());
-    $(".updatePhone").val($(this).parents("tr").children(".phone").text().trim());
-});
-$(".cancle").click(function(){
-    $("#updateBox").fadeOut();
-});

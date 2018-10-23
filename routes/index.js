@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var usersModel = require('../model/usersModel');
+var brandModel = require('../model/brandModel.js');
 // 首页
 router.get('/', function(req, res, next) {
   //判断cookie用户信息
@@ -58,7 +59,41 @@ router.get('/user-manager.html',function(req,res){
     }else{
       res.redirect('/login.html');
     }
-})
+});
+
+//手机管理页面
+router.get('/brand-manager.html',function(req,res){
+  //判断用户是否登录及是否为管理员
+  if(req.cookies.username){
+    // 需要查询数据库
+    // 从前端取得2个参数
+    let page = req.query.page || 1; // 页码
+    let pageSize = req.query.pageSize || 5; // 每页显示的条数
+
+    brandModel.getbrandInfo({
+      page: page,
+      pageSize : pageSize
+    },function(err,data){
+      if (err) {
+        res.render('werror', err);
+      } else {
+        res.render('brand-manager',{
+          username: req.cookies.username,
+          nickname: req.cookies.nickname,
+          isAdmin: parseInt(req.cookies.isAdmin) ? '(管理员)' : '',
+
+          brandInfo : data.brandInfo,
+          totalPage: data.totalPage,
+          page: data.page
+        });
+      }
+    });
+
+   
+  }else{
+    res.redirect('/login.html');
+  }
+});
 
 //手机管理页面
 router.get('/mobile-manager.html',function(req,res){
@@ -69,11 +104,11 @@ router.get('/mobile-manager.html',function(req,res){
       nickname: req.cookies.nickname,
       isAdmin: parseInt(req.cookies.isAdmin) ? '(管理员)' : ''
 
+
       
     });
   }else{
     res.redirect('/login.html');
   }
 })
-
 module.exports = router;

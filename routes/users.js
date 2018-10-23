@@ -75,7 +75,8 @@ router.get('/logout',function(req,res){
   res.clearCookie('username');
   res.clearCookie('nickname');
   res.clearCookie('isAdmin');
-  res.redirect('/login.html');
+  
+  res.send('<script>location.replace("/")</script>');
 })
 
 //用户删除

@@ -4,6 +4,7 @@
     <title>index</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel='stylesheet' href='/css/index.css' />
+    <link rel='stylesheet' href='/css/brand.css' />
   </head>
   <body>
     <div class="index">
@@ -14,8 +15,54 @@
         </div>
         <div class="main">
             <h1 class="title">品牌管理</h1>
+            <h2 class="addBrandBtn">新增品牌</h2>
+            <table>
+              <thead>
+                <tr>
+                    <td>序号</td>
+                    <td>品牌LOGO</td>
+                    <td>品牌名称</td>
+                    <td>操作</td>
+                  </tr>
+                </thead>
+                <tbody>
+                   <!-- 循环 brandInfo 显示用户数据 -->
+                  <% for (var i = 0; i < brandInfo.length; i++) { %>
+                    <tr>
+                      <td><%= brandInfo[i]._id %></td>
+                      <td><img src="/brands/<%= brandInfo[i].filename%>"></td>                      
+                      <td><%= brandInfo[i].brandname %></td>
+                      <td><a href="#">修改</a><a href="#">删除</a></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+            </table>
+            <ul class="pageNum">
+                <% for (var i = 0; i < totalPage; i++) { %>
+                  <li>
+                    <a href="/brand-manager.html?page=<%= i+1 %>" ><%= i+1 %>页</a>
+                  </li>
+                <% } %>
+            </ul>
+            <div class="addBrand">
+              <h2>新增品牌</h2>
+              <form action="/brand/add" method="post" enctype="multipart/form-data">
+                <label>
+                  <span>品牌名称</span>
+                  <input type="text" name="brandname" class="brandName" value="">
+                </label>
+                <label>
+                  <span>上传logo</span>
+                  <input type="file" name="fileimg" class="fileImg">
+                </label>
+                <input type="submit" value="确认" id="sub">
+                <i class="cancleBrand">取消</i>
+              </form>
+            </div>
         </div>
       </div>
     </div>
   </body>
 </html>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/manager.js"></script>
