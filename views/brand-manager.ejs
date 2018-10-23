@@ -32,7 +32,10 @@
                       <td><%= brandInfo[i]._id %></td>
                       <td><img src="/brands/<%= brandInfo[i].filename%>"></td>                      
                       <td><%= brandInfo[i].brandname %></td>
-                      <td><a href="#">修改</a><a href="#">删除</a></td>
+                      <td>
+                        <!-- <a href="#">修改</a> -->
+                        <a href="/brand/delete?id=<%= brandInfo[i]._id %>">删除</a>
+                      </td>
                     </tr>
                   <% } %>
                 </tbody>

@@ -1,0 +1,16 @@
+table{
+    width: 1000px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid #4B5F71;
+  }
+  table tr,table td{
+    border: 1px solid #4B5F71;
+  }
+  table tbody td{
+      height: 160px;
+  }
+  table img{
+    width: 100px;
+  }

@@ -4,6 +4,7 @@
     <title>index</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel='stylesheet' href='/css/index.css' />
+    <link rel='stylesheet' href='/css/mobile.css' />
   </head>
   <body>
     <div class="index">
@@ -14,7 +15,7 @@
         </div>
         <div class="main">
             <h1 class="title">手机管理</h1>
-            <h2>新增手机</h2>
+            <h2 class="addMobileBtn">新增手机</h2>
             <table>
               <thead>
                 <tr>
@@ -28,20 +29,58 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>假装有图</td>
-                  <td>小米8探索者</td>
-                  <td>小米</td>
-                  <td>3888</td>
-                  <td>2000</td>
-                  <td>修改</td>
-                </tr>
+                 <!-- 循环 brandInfo 显示用户数据 -->
+                 <% for (var i = 0; i < mobileInfo.length; i++) { %>
+                  <tr>
+                    <td><%= mobileInfo[i]._id %></td>
+                    <td><img src="/mobiles/<%= mobileInfo[i].filename%>"></td>                      
+                    <td><%= mobileInfo[i].mobilename %></td>
+                    <td><%= mobileInfo[i].brandname %></td>
+                    <td><%= mobileInfo[i].authorprice %></td>
+                    <td><%= mobileInfo[i].shandprice %></td>
+                    <td>
+                      <a href="#">修改</a>
+                      <a href="/mobile/delete?id=<%= mobileInfo[i]._id %>">删除</a>
+                    </td>
+                  </tr>
+                <% } %>
               </tbody>
             </table>
-            
+            <div class="addMobile">
+              <h2>新增手机</h2>
+              <form action="mobile/add" method="post" enctype="multipart/form-data">
+                <label>
+                  <span>手机名称</span>
+                  <input type="text" name="mobilename" class="mobileName" value="">
+                </label>
+                <label>
+                  <span>所属品牌</span>
+                  <!-- <input type="text" name="brandname" class="brandName" value=""> -->
+                  <select name="brandname" class="selBrand">
+                      <option>--请选择--</option>
+                  </select>
+                </label>
+                <label>
+                  <span>官方指导价</span>
+                  <input type="text" name="authorprice" class=" authorPrice" value="">
+                </label>
+                <label>
+                  <span>二手回收价</span>
+                  <input type="text" name="shandprice" class=" shandPrice" value="">
+                </label>
+                <label>
+                  <span>上传logo</span>
+                  <input type="file" name="fileimg" class="fileImg">
+                </label>
+
+                <input type="submit" value="确认" id="sub">
+                <i class="cancleBrand">取消</i>
+              </form>
+            </div>
         </div>
       </div>
     </div>
   </body>
 </html>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/manager.js"></script>
