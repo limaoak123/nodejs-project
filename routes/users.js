@@ -93,15 +93,46 @@ router.get('/delete',function(req,res){
 //用户修改
 router.post('/update',function(req,res){  
   usersModel.updateUser(req.body, function(err){
-    console.log("===");
-    console.log(req.body);
-    console.log("===");
-    if(err){
+    if(err){    
       res.render('werror',err);
     }else{
+      res.cookie('nickname',req.body.nickname,{
+        maxAge: 1000 * 60 * 60 * 24,
+      })
       res.redirect('/user-manager.html');
     }
   });
 });
 
+//用户搜索
+router.get('/search',function(req,res){
+ // console.log(req.query);
+  let page = req.query.page || 1;
+  let pageSize = req.query.pageSize || 5;
+  var searchName = req.query.nickname;
+  //console.log(searchName+'--------')
+  if(searchName==''){
+    res.redirect('/user-manager.html');
+  }else{
+    usersModel.searchUser({
+      page: page,
+      pageSize: pageSize,
+      searchName: searchName
+    },function(err,data){
+      if(err){
+        res.render('error',err);
+      }else{
+       // console.log('搜索结果'+data.userList);
+        res.render('user-manager',{
+          username:req.cookies.username,
+          nickname:req.cookies.nickname,
+          isAdmin:parseInt(req.cookies.is_admin)?'(管理员)':'',
+          page:data.page,
+          userInfo: data.userList,
+          totalPage:data.totalpage
+        });
+      }
+    })
+  }
+});
 module.exports = router;

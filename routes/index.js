@@ -59,7 +59,6 @@ router.get('/user-manager.html',function(req,res){
       res.redirect('/login.html');
     }
 })
-module.exports = router;
 
 //手机管理页面
 router.get('/mobile-manager.html',function(req,res){
@@ -76,4 +75,5 @@ router.get('/mobile-manager.html',function(req,res){
     res.redirect('/login.html');
   }
 })
+
 module.exports = router;

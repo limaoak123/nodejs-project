@@ -13,9 +13,9 @@
            <%- include('./common/menu.ejs',{isAdmin:isAdmin}) %> 
         </div>
         <div class="main">
-           <form action="/users/search" method="post">
-              <input type="text" placeholder="输入用户昵称">
-              <button>搜索</button>
+           <form action="/users/search" method="get">
+              <input type="text" placeholder="输入用户昵称" name="nickname">
+              <input type="submit" value="搜索">
            </form>
             <table>
                 <thead>
