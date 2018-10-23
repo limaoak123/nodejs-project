@@ -1,0 +1,83 @@
+#updateBox{
+    position: fixed;
+    bottom: 200px;
+    right: 500px;
+    padding: 20px 50px;
+    background: #4B5F71;
+    border: 1px solid #000;
+    display: none;
+    color: #fff;
+  }
+  #updateBox h2{
+    text-align: center;
+  }
+  label.change{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+  }
+  label.change span{
+    display: inline-block;
+    width: 60px;
+  }
+  label.change input{
+    border: none;
+    padding: 5px;
+  }
+ #updateBox #sub{
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgb(0, 124, 128);
+    margin-right: 80px;;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+ i.cancle{
+    padding: 10px 20px;
+    background: rgb(0, 124, 128);
+    cursor: pointer;
+  }
+
+  .seaInfo {
+    height: 50px;
+    line-height: 50px;
+  }
+  .seaInfo .seaName{
+      border:none;
+      height: 30px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      padding: 5px;
+      width: 220px;
+      outline: none;
+  }
+  .seaInfo .seaSub{
+    border: none;
+    background: #26B99A;
+    color: #fff;
+    width: 50px;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 5px;
+  }
+  /*表格样式*/
+
+  table{
+    width: 1000px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid #4B5F71;
+  }
+  table tr,table td{
+    border: 1px solid #4B5F71;
+  }
+
+  .pageNum{
+    overflow: hidden;
+    text-align: center
+  }
+  .pageNum li{
+    float: left;
+  }

@@ -126,7 +126,7 @@ router.get('/search',function(req,res){
         res.render('user-manager',{
           username:req.cookies.username,
           nickname:req.cookies.nickname,
-          isAdmin:parseInt(req.cookies.is_admin)?'(管理员)':'',
+          isAdmin: parseInt(req.cookies.isAdmin) ? '(管理员)' : '',
           page:data.page,
           userInfo: data.userList,
           totalPage:data.totalpage

@@ -1,11 +1,9 @@
 <div class="header">
   <div class="header_left">
-    <h2>xx-后台管理系统</h2>
+    <h2><a href="/">xx-后台管理系统</a></h2>
   </div>
   <div class="header_right">
-    <p>欢迎您- <%= nickname %> - <%= isAdmin %></p>
-    <button>
-      <a href="/users/logout">退出登录</a>
-    </button>
+    <p>欢迎您 - <span><%= nickname %></span> - <%= isAdmin %></p>
+    <a href="/users/logout" class="logBtn">退出登录</a>
   </div>
 </div>

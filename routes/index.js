@@ -62,7 +62,7 @@ router.get('/user-manager.html',function(req,res){
 
 //手机管理页面
 router.get('/mobile-manager.html',function(req,res){
-  //判断用户是否登录及是否为管理员
+  //判断用户是否登录
   if(req.cookies.username){
     res.render('mobile-manager',{
       username: req.cookies.username,

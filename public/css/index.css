@@ -5,9 +5,10 @@
   }
   
   .index .header {
-    height: 60px;
-    line-height: 60px;
-    border-bottom: 1px solid #000;
+    height: 80px;
+    line-height: 80px;
+    background: rgb(12, 41, 59);
+    color:#fff;
   }
   
   .index .container {
@@ -18,66 +19,72 @@
   .container .menu {
     width: 260px;
     height: 100%;
+    background: #21C1CD;
   }
   
   .container .main {
     flex: 1;
     height: 100%;
+    padding: 0 50px;
   }
   
   /* // ======== [头部样式] ======== */
   .header {
     display: flex;
     justify-content: space-between;
+    padding: 0 20px;
   }
   .header .header_right {
     display: flex;
+    font-weight: lighter;
   }
-  
+  .logBtn{
+    background: rgba(0, 195, 255, 0.452);
+    padding: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px; 
+    height: 40px;
+    line-height: 40px;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  .header_right p span{
+    color: rgb(245, 87, 87);
+  }
+  .header_left{
+    font-size: 20px;
+  }
+  .header_left a{
+    color: #fff;
+  }
   /* // ======== [左侧菜单] ======== */
-  .menu {
-    border-right: 1px solid #000;
+  .menu ul{
+    margin-top: 50px;
   }
-  
   .menu .menu_item {
     height: 50px;
+    margin-bottom: 20px; 
+  }
+  .menu .menu_item a{
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    width: 210px;
+    height: 100%;
+    margin-left: 20px;
     line-height: 50px;
-  }
-
-  #updateBox{
-    position: fixed;
-    top:200px;
-    left: 280px;
-    padding: 20px 50px;
-    background:#ddd;
-    border: 1px solid #000;
-    display: none;
-  }
-  #updateBox h2{
+    font-size: 16px;
+    border: 1px solid #fff;
     text-align: center;
+    border-radius: 5px;
   }
-  label.change{
-    display: block;
-    height: 50px;
-    line-height: 50px;
-  }
-  label.change span{
-    display: inline-block;
-    width: 60px;
-  }
-  label.change input{
-    border: none
-  }
- #updateBox #sub{
-    display: inline-block;
-    padding: 10px 20px;
-    background: green;
-    margin-right: 80px;;
-    border: none;
-    cursor: pointer;
-  }
- i.cancle{
-    padding: 10px 20px;
-    background: green;
-    cursor: pointer;
-  }
+ h1.title{
+   height: 50px;
+   text-align: center;
+   line-height: 50px;
+   font-size: 28px;
+   font-weight: lighter;
+   border-bottom: 1px solid #ddd;
+ }
