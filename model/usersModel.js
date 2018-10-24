@@ -218,10 +218,8 @@ const usersModel = {
     MongoClient.connect(url, function(err, client) {
       let saveData = {
         username: data.username,
-        password: data.password,
         nickname: data.nickname,
         phone: data.phone,
-        is_admin: data.isAdmin
       };
       if (err) {
         console.log("连接数据库失败")

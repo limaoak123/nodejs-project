@@ -162,6 +162,42 @@ const mobileModel = {
     });
   },
 
+  //修改用户信息
+  /**
+   * 
+   * @param {object} data 修改的手机信息 
+   * @param {Function} cb 回调函数 
+   */
+  updateMobile(data,cb){
+    MongoClient.connect(url, function(err, client) {
+      let saveData = {
+        mobilename: data.mobilename,
+        authorprice : data.authorprice,
+        shandprice : data.shandprice
+      };
+      if (err) {
+        console.log("连接数据库失败")
+        cb({code: -100, msg: '数据库连接失败'});
+        return;
+      } else {
+        const db = client.db('limao');
+        db.collection("mobile").updateOne({
+          mobilename: saveData.mobilename,
+        },{
+          $set : {
+            authorprice : saveData.authorprice,
+            shandprice : saveData.shandprice
+          }
+        },function(err){
+          if(err) throw err;
+          console.log("修改成功")
+          cb(null);
+        });
+        client.close();
+      }
+   });
+  },
+
 };
 
 

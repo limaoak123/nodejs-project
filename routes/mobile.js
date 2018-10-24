@@ -81,5 +81,16 @@ router.post('/addbrand', function(req, res) {
         }
     })
  });
+
+ //价格修改
+ router.post('/update',function(req,res){  
+    mobileModel.updateMobile(req.body, function(err){
+      if(err){    
+        res.render('werror',err);
+      }else{
+        res.redirect('/mobile-manager.html');
+      }
+    });
+  });
   
 module.exports = router;

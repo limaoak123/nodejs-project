@@ -8,6 +8,14 @@ $(".cancle").click(function(){
     $("#updateBox").fadeOut();
 });
 
+$(".subUser").click(function(){
+   // console.log($(".updateNick").val());
+    
+})
+
+
+
+
 $(".addBrandBtn").click(function(){
     $(".addBrand").fadeIn();
 })
@@ -16,10 +24,27 @@ $(".cancleBrand").click(function(){
 });
 
 $.post('/mobile/addbrand',function(result) {
-    console.log(result.data[0].brandname)
     var html = ''
     for(var i = 0 ; i < result.data.length;i++){
         html += `<option>${result.data[i].brandname}</option>`
     }
     $('.selBrand').append(html);
 })
+
+$(".updateMobileBtn").click(function(){
+    $("#updateMobileBox").fadeIn();
+    $(".updateMobile").val($(this).parents("tr").children(".mName").text().trim());
+    $(".updateBrand").val($(this).parents("tr").children(".bName").text().trim());
+    $(".updateAprice").val($(this).parents("tr").children(".aPrice").text().trim());
+    $(".updateSprice").val($(this).parents("tr").children(".sPrice").text().trim());
+});
+$(".cancleMoblie").click(function(){
+    $("#updateMobileBox").fadeOut();
+});
+
+$(".addMobileBtn").click(function(){
+    $(".addMobile").fadeIn();
+})
+$(".cancle1").click(function(){
+    $(".addMobile").fadeOut();
+});

@@ -74,11 +74,4 @@
     border: 1px solid #4B5F71;
   }
 
-  .pageNum{
-    overflow: hidden;
-    text-align: center
-  }
-  .pageNum li{
-    float: left;
-  }
   

@@ -34,12 +34,12 @@
                   <tr>
                     <td><%= mobileInfo[i]._id %></td>
                     <td><img src="/mobiles/<%= mobileInfo[i].filename%>"></td>                      
-                    <td><%= mobileInfo[i].mobilename %></td>
-                    <td><%= mobileInfo[i].brandname %></td>
-                    <td><%= mobileInfo[i].authorprice %></td>
-                    <td><%= mobileInfo[i].shandprice %></td>
+                    <td class="mName"><%= mobileInfo[i].mobilename %></td>
+                    <td class="bName"><%= mobileInfo[i].brandname %></td>
+                    <td class="aPrice"><%= mobileInfo[i].authorprice %></td>
+                    <td class="sPrice"><%= mobileInfo[i].shandprice %></td>
                     <td>
-                      <a href="#">修改</a>
+                      <a class="updateMobileBtn">修改</a>
                       <a href="/mobile/delete?id=<%= mobileInfo[i]._id %>">删除</a>
                     </td>
                   </tr>
@@ -74,9 +74,39 @@
                 </label>
 
                 <input type="submit" value="确认" id="sub">
-                <i class="cancleBrand">取消</i>
+                <i class="cancle1">取消</i>
               </form>
             </div>
+            <div id="updateMobileBox">
+              <h2>修改</h2>
+              <form action="/mobile/update" method="post">
+                <label>
+                  <span>手机名称</span>
+                  <input type="text" name="mobilename" class="updateMobile" value="" readonly>
+                </label>
+                <label>
+                  <span>所属品牌</span>
+                  <input type="text" name="brandname" class="updateBrand" value="" readonly>
+                </label>
+                <label>
+                  <span>官方指导价</span>
+                  <input type="text" name="authorprice" class="updateAprice" value="">
+                </label>
+                <label>
+                  <span>二手回收价</span>
+                  <input type="text" name="shandprice" class="updateSprice" value="">
+                </label>
+                  <input type="submit" value="确认" id="sub">
+                  <i class="cancleMoblie">取消</i>
+              </form>
+            </div>
+            <ul class="pageNum">
+              <% for (var i = 0; i < totalPage; i++) { %>
+                <li>
+                  <a href="/mobile-manager.html?page=<%= i+1 %>" ><%= i+1 %>页</a>
+                </li>
+              <% } %>
+            </ul>
         </div>
       </div>
     </div>
