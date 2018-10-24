@@ -41,11 +41,13 @@
                 </tbody>
             </table>
             <ul class="pageNum">
+                <li><a href="" id="prev"><<</a></li>
                 <% for (var i = 0; i < totalPage; i++) { %>
                   <li>
                     <a href="/brand-manager.html?page=<%= i+1 %>" ><%= i+1 %>页</a>
                   </li>
                 <% } %>
+                <li><a href="" id="next">>></a></li>
             </ul>
             <div class="addBrand">
               <h2>新增品牌</h2>

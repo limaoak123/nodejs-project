@@ -10,8 +10,8 @@ router.get('/', function(req, res, next) {
 // 注册处理
 router.post('/register', function (req, res) {
   // 1. 用户名必须是 5 - 10为字符
-  if (!/^\w{5,10}$/.test(req.body.username)) {
-    res.render('werror', { code: -1, msg: '用户名必须是5-10位' });
+  if (!/^\w{5,20}$/.test(req.body.username)) {
+    res.render('werror', { code: -1, msg: '用户名必须是5-20位' });
     return;
 }else if( !/^\S{6,20}$/.test(req.body.password)){
     res.render('werror', { code: -1, msg: '密码必须是6-20位' });
@@ -128,9 +128,10 @@ router.get('/search',function(req,res){
           username:req.cookies.username,
           nickname:req.cookies.nickname,
           isAdmin: parseInt(req.cookies.isAdmin) ? '(管理员)' : '',
+          searchname: searchName,
           page:data.page,
-          userInfo: data.userList,
-          totalPage:data.totalpage
+          userInfo: data.userInfo,
+          totalPage:data.totalPage
         });
       }
     })

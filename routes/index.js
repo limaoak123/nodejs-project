@@ -36,7 +36,7 @@ router.get('/user-manager.html',function(req,res){
       // 从前端取得2个参数
       let page = req.query.page || 1; // 页码
       let pageSize = req.query.pageSize || 5; // 每页显示的条数
-
+      var searchName = req.query.nickname ;
       usersModel.getUserInfo({
         page: page,
         pageSize : pageSize
@@ -48,7 +48,7 @@ router.get('/user-manager.html',function(req,res){
             username: req.cookies.username,
             nickname: req.cookies.nickname,
             isAdmin: parseInt(req.cookies.isAdmin) ? '(管理员)' : '',
-
+            searchname : searchName,
             userInfo : data.userInfo,
             totalPage: data.totalPage,
             page: data.page

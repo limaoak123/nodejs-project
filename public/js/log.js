@@ -1,4 +1,4 @@
-var usernameReg = /^\w{5,10}$/;
+var usernameReg = /^\w{5,20}$/;
 var usernameFlag = false;
 $("#username").blur(function(){
 	//开始检测用户名是否合法

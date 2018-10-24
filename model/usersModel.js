@@ -293,8 +293,9 @@ const usersModel = {
           }else{
             cb(null,{
               totalPage:Math.ceil(results[0]/limitNum),
-              userList:results[1],
+              userInfo:results[1],
               page:data.page
+              
             });
           }
           client.close();
