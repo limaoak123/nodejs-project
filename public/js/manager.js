@@ -11,7 +11,7 @@ $(".update").click(function(){
     if(nickname == loginName){
         $(".subUser").click(function(){
             var cName = $(".updateNick").val();
-            $.cookie("nickname",cName);
+            $.cookie("nickname",cName,{expires:1});
         })
     }
 
@@ -60,7 +60,7 @@ $(".updateMobileBtn").click(function(){
     $(".updateAprice").val($(this).parents("tr").children(".aPrice").text().trim());
     $(".updateSprice").val($(this).parents("tr").children(".sPrice").text().trim());
 });
-$(".cancleMoblie").click(function(){
+$(".cancleMobile").click(function(){
     $("#updateMobileBox").fadeOut();
 });
 
@@ -71,33 +71,6 @@ $(".cancle1").click(function(){
     $(".addMobile").fadeOut();
 });
 
-/*$(function () {
-    var str = location.href;
-    var page = str.split("=")[1]
-    var urlstr = str.split("=")[0].split("3000/")[1].split("?")[0];
-    var tol = $('.pageNum li').length - 2;
-    // console.log(p)
-    $("#prev").click(function () {
-        if (!page) {
-            page = 1
-        }
-        page--
-        if (page === 0) {
-            page = 1
-        }
-        $(this).attr("href", `${urlstr}?page=${page}`)
-    })
-    $('#next').click(function () {
-        if (!page) {
-            page = 1
-        }
-        page++;
-        if (page > tol) {
-            page = tol
-        }
-        $(this).attr("href", `${urlstr}?page=${page}`)
-    })
-})*/
 
 //分页
 $(function () {
@@ -179,4 +152,3 @@ $(function () {
       }
       
   })
-

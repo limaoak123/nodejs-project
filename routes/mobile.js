@@ -39,7 +39,6 @@ router.post('/add', upload.single('fileimg'), function(req, res) {
                 shandprice : req.body.shandprice
             }, function(err) {
                 if (err) {
-                  // 如果有错误，直接将错误信息渲染到页面
                   res.render('werror', err);
                 } else {
                   // 新增成功跳转

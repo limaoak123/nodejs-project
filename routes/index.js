@@ -32,8 +32,6 @@ router.get('/login.html', function(req, res) {
 router.get('/user-manager.html',function(req,res){
     //判断用户是否登录及是否为管理员
     if(req.cookies.username && parseInt(req.cookies.isAdmin)){
-      // 需要查询数据库
-      // 从前端取得2个参数
       let page = req.query.page || 1; // 页码
       let pageSize = req.query.pageSize || 5; // 每页显示的条数
       var searchName = req.query.nickname ;
@@ -65,10 +63,7 @@ router.get('/user-manager.html',function(req,res){
 
 //手机管理页面
 router.get('/mobile-manager.html',function(req,res){
-    //判断用户是否登录及是否为管理员
     if(req.cookies.username){
-      // 需要查询数据库
-      // 从前端取得2个参数
       let page = req.query.page || 1; // 页码
       let pageSize = req.query.pageSize || 5; // 每页显示的条数
   
@@ -98,10 +93,7 @@ router.get('/mobile-manager.html',function(req,res){
 });
 //品牌管理页面
 router.get('/brand-manager.html',function(req,res){
-  //判断用户是否登录及是否为管理员
   if(req.cookies.username){
-    // 需要查询数据库
-    // 从前端取得2个参数
     let page = req.query.page || 1; // 页码
     let pageSize = req.query.pageSize || 5; // 每页显示的条数
 

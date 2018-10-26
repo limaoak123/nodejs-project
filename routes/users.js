@@ -97,9 +97,6 @@ router.post('/update',function(req,res){
     if(err){    
       res.render('werror',err);
     }else{
-     /* res.cookie('nickname',req.body.nickname,{
-        maxAge: 1000 * 60 * 60 * 24,
-      })*/
       res.redirect('/user-manager.html');
     }
   });

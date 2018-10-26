@@ -102,3 +102,13 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/jquery.cookie.js"></script>
 <script src="/js/manager.js"></script>
+<script>
+  $(".subUser").click(function(){
+    var nVal = $(".updateNick").val(),
+        pVal = $(".updatePhone").val();
+    if(!(nVal && pVal)){
+      alert("请正确填写表单")
+      event.preventDefault();
+    }   
+  })
+</script>

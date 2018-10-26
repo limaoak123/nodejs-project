@@ -96,8 +96,8 @@
                   <span>二手回收价</span>
                   <input type="text" name="shandprice" class="updateSprice" value="">
                 </label>
-                  <input type="submit" value="确认" id="sub">
-                  <i class="cancleMoblie">取消</i>
+                  <input type="submit" value="确认" id="subupdate">
+                  <i class="cancleMobile">取消</i>
               </form>
             </div>
             <ul class="pageNum">
@@ -116,3 +116,25 @@
 </html>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/manager.js"></script>
+<script>
+  $("#sub").click(function(){
+    var mobVal = $(".mobileName").val(),
+        selVal =  $(".selBrand").val(),
+        autVal = $(".authorPrice").val(),
+        shandVal = $(".shandPrice").val(),
+        filVal =  $(".fileImg").val();
+    if(!( mobVal && selVal && autVal && shandVal && filVal)){
+        alert("请正确填写表单")
+        event.preventDefault();
+    }
+  })
+
+  $("#subupdate").click(function(){
+    var apVal = $(".updateAprice").val();
+    var spVal = $(".updateSprice").val();
+    if(!(apVal && spVal)){
+      alert("请正确填写表单")
+        event.preventDefault();
+    }
+  })
+</script>

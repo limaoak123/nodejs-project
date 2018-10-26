@@ -17,8 +17,6 @@ const brandModel = {
       if (err) {
         console.log('链接数据库失败', err);
         cb({ code: -100, msg: '链接数据库失败'});
-
-        // 这里不需要关闭连接，因为没有连接成功。
         return;
       };
       const db = client.db('limao');
@@ -75,10 +73,8 @@ const brandModel = {
           })
         }
       ], function(err, results){
-        // 不管上面3个异步操作是否都成功，都会进入到这个最终的回调里面
         if (err) {
           console.log('上面的3步操作，可能出了问题', err);
-          // 还得告诉前端页面
           cb(err);
         } else {
           cb(null);

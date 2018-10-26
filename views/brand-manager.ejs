@@ -71,3 +71,13 @@
 </html>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/manager.js"></script>
+<script>
+  $("#sub").click(function(){
+    var bVal = $(".brandName").val(),
+        fVal = $(".fileImg").val();
+    if(!(bVal && fVal)){
+      alert("请正确填写表单")
+       event.preventDefault();
+    }
+  })
+</script>

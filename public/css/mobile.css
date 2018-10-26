@@ -57,7 +57,7 @@ table{
   .addMobile .fileImg{
     width: 162px;
   }
-  #sub{
+  #sub,#subupdate{
     border: none;
     width: 50px;
     height: 30px;
@@ -67,8 +67,9 @@ table{
     background: #26B99A;
     margin-right: 50px;
     margin-top: 10px;
+    cursor: pointer;
   }
-  .cancle1{
+  .cancle1,.cancleMobile{
     display: inline-block;
     width: 50px;
     height: 30px;
@@ -77,15 +78,32 @@ table{
     font-weight: bold;
     background: #26B99A;
     line-height: 30px;
+    text-align: center;
+    cursor: pointer;
   }
   #updateMobileBox{
-    width: 500px;
+    width: 400px;
     position: fixed;
     right: 100px;
     top: 300px;
     background: goldenrod;
     display: none;
+    padding: 30px;
+    color: #fff
   }
   #updateMobileBox label{
     display: block;
+    margin-bottom: 5px; 
+  }
+  #updateMobileBox h2{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  #updateMobileBox span{
+    display: inline-block;
+    width: 100px; 
+  }
+  #updateMobileBox #subupdate{
+    margin-left: 105px;
   }
